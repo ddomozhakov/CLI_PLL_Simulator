@@ -9,10 +9,8 @@ void readBufferFromFile(char *file_dest, struct buffer_wave * buffer, int read_f
   }
   for (int i = 0; i < n_lens; i++) {
     fgets(buffer_string, MAX_FILE_STRING, file_pointer);
-    char *buffer_string_split = strtok(buffer_string, " ");
-    buffer[i].x = atol(buffer_string_split);
-    buffer_string_split = strtok(buffer_string, " ");
-    buffer[i].x = atol(buffer_string_split);
+    buffer[i].x = atol(strtok(buffer_string, " "));
+    buffer[i].y = atol(strtok(NULL, " "));
   }
   fclose(file_pointer);
 }
@@ -31,6 +29,3 @@ void clearFile(char *file_dest) {
   file_pointer = fopen(file_dest, "w");
   fclose(file_pointer);
 }
-
-
-

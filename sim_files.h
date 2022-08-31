@@ -8,7 +8,7 @@
 
 #define MAX_FILE_STRING 25
 
-struct buffer {
+struct buffer_wave {
   double x;
   double y;
 };
