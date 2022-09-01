@@ -1,13 +1,13 @@
 CC=g++
 //CFLAGS= -c -Wall -Werror -Wextra -fsanitize=address -g
-CFLAGS= -c -o2 -Wall -Werror -Wextra
-//CFLAGS= -c
+//CFLAGS= -c -o2 -Wall -Werror -Wextra
+CFLAGS= -c
 LDFLAGS=
 SOURCES=wave_demo.cpp waprint.cpp
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=m.out
 
-all: main
+all: cli_pll_sim
 
 main: $(OBJECTS)
 	$(CC) $(OBJECTS) -o m.out
@@ -24,14 +24,20 @@ test_files.o: test_files.cpp
 simfiles.o: simfiles.cpp
 	$(CC) $(CFLAGS) -c simfiles.cpp -o simfiles.o
 
-test_files:: test_files.o sim_files.o
+test_files: test_files.o sim_files.o
 	$(CC) $(LDLAGS) test_files.o simfiles.o -o test_files
 
 items.o: items.cpp simfiles.o
 	$(CC) $(CFLAGS) -c items.cpp -o items.o
 
-test_items:: test_items.o simfiles.o items.o waprint.o
+test_items: test_items.o simfiles.o items.o waprint.o
 	$(CC) $(LDLAGS) test_items.o simfiles.o items.o waprint.o -o test_items
+
+cli_sim_pll.o: cli_sim_pll.cpp
+	$(CC) $(CFLAGS) -c cli_sim_pll.cpp -o cli_sim_pll.o
+
+cli_pll_sim: clean cli_sim_pll.o simfiles.o items.o waprint.o
+	$(CC) $(LDLAGS) cli_sim_pll.o simfiles.o items.o waprint.o -o cli_pll_sim
 
 clean:
 	rm -f *.o
