@@ -1,4 +1,4 @@
-#include "sim_files.h"
+#include "simfiles.h"
 
 int main() {
   struct buffer_wave buffer[10];

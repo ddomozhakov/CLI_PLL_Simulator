@@ -5,11 +5,9 @@ void waveformPrint(struct field *fi, int x_n, int x_range, int y_n, int y_range)
   for (int i = 0; i < y_n; i++) {
     screen[i] = (int *) malloc(x_n * sizeof(int));
   }
-
   screenInit(screen, y_n, x_n);
   screenSet(screen, fi, y_n, x_n, y_range);
   screenPrint(screen, y_n, x_n);
-
   for (int i = 0; i < y_n; i++) {
     free(screen[i]);
   }
