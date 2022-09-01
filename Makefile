@@ -1,7 +1,7 @@
 CC=g++
 //CFLAGS= -c -Wall -Werror -Wextra -fsanitize=address -g
-//CFLAGS= -c -g3 -Wall -Werror -Wextra
-CFLAGS= -c
+CFLAGS= -c -o2 -Wall -Werror -Wextra
+//CFLAGS= -c
 LDFLAGS=
 SOURCES=wave_demo.cpp waprint.cpp
 OBJECTS=$(SOURCES:.c=.o)
@@ -30,8 +30,8 @@ test_files:: test_files.o sim_files.o
 items.o: items.cpp simfiles.o
 	$(CC) $(CFLAGS) -c items.cpp -o items.o
 
-test_items:: test_items.o simfiles.o items.o
-	$(CC) $(LDLAGS) test_items.o simfiles.o items.o -o test_items
+test_items:: test_items.o simfiles.o items.o waprint.o
+	$(CC) $(LDLAGS) test_items.o simfiles.o items.o waprint.o -o test_items
 
 clean:
 	rm -f *.o
