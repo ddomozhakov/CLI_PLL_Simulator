@@ -41,7 +41,8 @@ cli_pll_sim: clean cli_sim_pll.o simfiles.o items.o waprint.o
 
 clean:
 	rm -f *.o
-	rm -f ../build/*
+	rm -f ../build/cli_pll_sim ../build/test_items ../build/test_files ../build/m.out
+	rm -f sim_1 sim_2
 
 rebuild:
 	$(MAKE) clean
