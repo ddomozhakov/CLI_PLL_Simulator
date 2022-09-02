@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "simfiles.h"
+#include <ncurses.h>
 
 struct vpulse {
   double local_time = 0;

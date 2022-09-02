@@ -1,7 +1,7 @@
-CC=g++
+CC=clang++
 //CFLAGS= -c -Wall -Werror -Wextra -fsanitize=address -g
-//CFLAGS= -c -o2 -Wall -Werror -Wextra
-CFLAGS= -c
+//CFLAGS= -Wall -Werror -Wextra
+CFLAGS=
 LDFLAGS=
 SOURCES=wave_demo.cpp waprint.cpp
 OBJECTS=$(SOURCES:.c=.o)
@@ -37,12 +37,13 @@ cli_sim_pll.o: cli_sim_pll.cpp
 	$(CC) $(CFLAGS) -c cli_sim_pll.cpp -o cli_sim_pll.o
 
 cli_pll_sim: clean cli_sim_pll.o simfiles.o items.o waprint.o
-	$(CC) $(LDLAGS) cli_sim_pll.o simfiles.o items.o waprint.o -o cli_pll_sim
+	$(CC) $(LDLAGS) -lncurses cli_sim_pll.o simfiles.o items.o waprint.o -o cli_pll_sim
 
 clean:
 	rm -f *.o
 	rm -f m.out
 	rm -f a.out
+	rm -f cli_pll_sim
 
 rebuild:
 	$(MAKE) clean

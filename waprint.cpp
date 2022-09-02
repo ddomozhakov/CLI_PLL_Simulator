@@ -1,5 +1,6 @@
 #include "waprint.h"
 
+
 void waveformPrint(struct buffer_wave *fi, int x_n, int y_n, int y_range) {
   int **screen = (int **) malloc(y_n * sizeof(int *));
   for (int i = 0; i < y_n; i++) {
@@ -34,12 +35,12 @@ void screenPrint(int **screen, int y_n, int x_n) {
   for (int i = y_n - 1; i >= 0; i--) {
     for (int j = 0; j < x_n; j++) {
       if (screen[i][j] == 1) {
-        printf("@");
+        printw("@");
       } else {
-        printf(".");
+        printw(".");
       }
     }
-    printf("\n");
+    printw("\n");
   }
 }
 
@@ -53,6 +54,6 @@ void fieldSet(struct buffer_wave *fi, int x_n, int x_range, int y_n, int y_range
 
 void xyPrint(struct  buffer_wave *fi, int x_n) {
   for (int i = 0; i < x_n; i++) {
-    printf("X %lf Y %lf\n", fi[i].x, fi[i].y);
+    printw("X %lf Y %lf\n", fi[i].x, fi[i].y);
   }
 }

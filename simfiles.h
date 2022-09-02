@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 
 #define MAX_FILE_STRING 25
 
