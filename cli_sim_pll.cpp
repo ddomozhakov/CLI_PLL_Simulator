@@ -31,15 +31,20 @@ int main() {
     global_time = global_time + time_step;
   }
 
+  readBufferFromFile(file_sim_1, buffer, read_file_shift, buffer_len);
+  readBufferFromFile(file_sim_2, integr, read_file_shift, buffer_len);
   for (int i = 0; i < buffer_len; i++) {
     integr[i].y = (integr[i].y + 0.1) * 1.5;
+    buffer[i].y = (buffer[i].y + 0.1) * 1.5;
   }
-
-  //readBufferFromFile(file_sim_1, buffer, read_file_shift, buffer_len);
-  //readBufferFromFile(file_sim_2, integr, read_file_shift, buffer_len);
-  //waveformPrint(buffer, buffer_len, y_n, y_range);
+  printf("Input signal\n");
+  waveformPrint(buffer, buffer_len, y_n, y_range);
+  printf("\n");
+  printf("Output signal");
+  for (int i = 0; i < (buffer_len - 70); i++) {
+    printf(" ");
+  }
+  printf("Perind = %.2lf, Capacitance = %.2lf, Resistance = %.2lf\n", vp1.period, cap1.capacitance, cap1.resistance);
   waveformPrint(integr, buffer_len, y_n, y_range+0.1);
-
-
   return 0;
 }

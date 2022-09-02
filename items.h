@@ -9,7 +9,7 @@ struct vpulse {
   int state = 1;
   double v_hi = 1;
   double v_low = 0;
-  double period = 40;
+  double period = 50;
   void setV(struct buffer_wave * buffer, double global_time, double time_step, int wave_shift);
 };
 
