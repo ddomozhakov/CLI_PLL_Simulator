@@ -25,8 +25,8 @@ void screenInit(int **screen, int y_n, int x_n) {
 
 void screenSet(int **screen, struct buffer_wave *fi, int y_n, int x_n, int y_range) {
   for (int i = 0; i < x_n; i++) {
-    if (((int) ((fi[i].y)*0.5*(y_n/y_range)) < y_n) && ((int) ((fi[i].y)*0.5*(y_n/y_range)) >= 0)) {
-      screen[(int) ((fi[i].y)*0.5*(y_n/y_range))][i] = 1;
+    if (((int) ((fi[i].y) * 0.5 * (y_n / y_range)) < y_n) && ((int) ((fi[i].y) * 0.5 * (y_n / y_range)) >= 0)) {
+      screen[(int) ((fi[i].y) * 0.5 * (y_n / y_range))][i] = 1;
     }
   }
 }
@@ -52,7 +52,7 @@ void fieldSet(struct buffer_wave *fi, int x_n, int x_range, int y_n, int y_range
   }
 }
 
-void xyPrint(struct  buffer_wave *fi, int x_n) {
+void xyPrint(struct buffer_wave *fi, int x_n) {
   for (int i = 0; i < x_n; i++) {
     printw("X %lf Y %lf\n", fi[i].x, fi[i].y);
   }

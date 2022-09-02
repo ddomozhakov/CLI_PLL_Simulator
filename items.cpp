@@ -1,10 +1,10 @@
 #include "items.h"
 
-void vpulse::setV(struct buffer_wave * buffer, double global_time, double time_step, int wave_shift) {
-  if ((state == 1) && (local_time > period/2)) {
+void vpulse::setV(struct buffer_wave *buffer, double global_time, double time_step, int wave_shift) {
+  if ((state == 1) && (local_time > period / 2)) {
     state = 0;
     local_time = 0;
-  } else if ((state == 0) && (local_time > period/2)) {
+  } else if ((state == 0) && (local_time > period / 2)) {
     state = 1;
     local_time = 0;
   }
@@ -13,7 +13,7 @@ void vpulse::setV(struct buffer_wave * buffer, double global_time, double time_s
   local_time = local_time + time_step;
 }
 
-void cap::setV(struct buffer_wave * buffer, double global_time, double time_step, int wave_shift) {
+void cap::setV(struct buffer_wave *buffer, double global_time, double time_step, int wave_shift) {
   double res_current = ((input_voltage - current_voltage) / resistance);
   charge = charge + (res_current / time_step);
   current_voltage = charge / capacitance;
@@ -24,5 +24,4 @@ void cap::setV(struct buffer_wave * buffer, double global_time, double time_step
 
   for (int i = 0; i < 200; i++) {
   }
-
 }

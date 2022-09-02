@@ -1,6 +1,6 @@
+#include "items.h"
 #include "simfiles.h"
 #include "waprint.h"
-#include "items.h"
 
 int main() {
   int buffer_len = 20;
@@ -8,7 +8,7 @@ int main() {
   char file_sim_1[] = "sim_1";
   int file_shift = 0;
   double time_step = 1;
-  double global_time  = 0;
+  double global_time = 0;
   double simulation_time = 222;
   clearFile(file_sim_1);
 

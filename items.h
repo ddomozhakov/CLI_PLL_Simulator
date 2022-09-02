@@ -1,8 +1,8 @@
 #ifndef H_ITEMS
 #define H_ITEMS
 
-#include <iostream>
 #include "simfiles.h"
+#include <iostream>
 #include <ncurses.h>
 
 struct vpulse {
@@ -11,7 +11,7 @@ struct vpulse {
   double v_hi = 1;
   double v_low = 0;
   double period = 50;
-  void setV(struct buffer_wave * buffer, double global_time, double time_step, int wave_shift);
+  void setV(struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
 };
 
 struct cap {
@@ -21,7 +21,7 @@ struct cap {
   double resistance = 5;
   double capacitance = 5;
   double charge = 0;
-  void setV(struct buffer_wave * buffer, double global_time, double time_step, int wave_shift);
+  void setV(struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
 };
 
 #endif  //ITEMS
