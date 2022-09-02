@@ -36,8 +36,14 @@ test_items: test_items.o simfiles.o items.o waprint.o
 cli_sim_pll.o: cli_sim_pll.cpp
 	$(CC) $(CFLAGS) -c cli_sim_pll.cpp -o cli_sim_pll.o
 
+cli_sim_rc.o: cli_sim_rc.cpp
+	$(CC) $(CFLAGS) -c cli_sim_rc.cpp -o cli_sim_rc.o
+
 cli_pll_sim: clean cli_sim_pll.o simfiles.o items.o waprint.o
 	$(CC) $(LDLAGS) -lncurses cli_sim_pll.o simfiles.o items.o waprint.o -o ../build/cli_pll_sim
+
+cli_rc_sim: clean cli_sim_rc.o simfiles.o items.o waprint.o
+	$(CC) $(LDLAGS) -lncurses cli_sim_rc.o simfiles.o items.o waprint.o -o ../build/cli_rc_sim
 
 clean:
 	rm -f *.o

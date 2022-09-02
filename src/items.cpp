@@ -21,7 +21,4 @@ void cap::setV(struct buffer_wave *buffer, double global_time, double time_step,
   buffer[wave_shift].x = global_time;
   buffer[wave_shift].y = current_voltage;
   local_time = local_time + time_step;
-
-  for (int i = 0; i < 200; i++) {
-  }
 }
