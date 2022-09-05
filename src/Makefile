@@ -1,6 +1,5 @@
 CC=clang++
-//CFLAGS= -c -Wall -Werror -Wextra -fsanitize=address -g
-//CFLAGS= -Wall -Werror -Wextra
+CFLAGS= -Wall -Werror -Wextra
 CFLAGS=
 LDFLAGS=
 SOURCES=wave_demo.cpp waprint.cpp
