@@ -21,7 +21,7 @@ int main() {
   struct vpulse vp1;
   struct cap cap1;
 
-  char key;
+  char key = 'm';
   initscr();
   while (key != 'q') {
     key = getch();

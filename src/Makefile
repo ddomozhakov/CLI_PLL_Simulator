@@ -1,6 +1,5 @@
 CC=clang++
 CFLAGS= -Wall -Werror -Wextra
-CFLAGS=
 LDFLAGS=
 SOURCES=wave_demo.cpp waprint.cpp
 OBJECTS=$(SOURCES:.c=.o)
