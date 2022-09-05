@@ -47,7 +47,7 @@ cli_rc_sim: clean cli_sim_rc.o simfiles.o items.o waprint.o
 
 clean:
 	rm -f *.o
-	rm -f ../build/cli_rc_sim ../build/test_items ../build/test_files ../build/m.out
+	rm -f ../build/test_items ../build/test_files ../build/m.out ../build/cli_rc_sim
 	rm -f sim_1 sim_2
 
 rebuild:

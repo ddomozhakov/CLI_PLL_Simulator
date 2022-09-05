@@ -62,22 +62,31 @@ int main() {
       integr[i].y = (integr[i].y + 0.1) * 1.5;
       buffer[i].y = (buffer[i].y + 0.1) * 1.5;
     }
-    if (key == 'a') {
+    switch (key) {
+    case 'a':
       vp1.period = changeOptions(vp1.period, 1);
-    } else if (key == 'z') {
+      break;
+    case 'z':
       vp1.period = changeOptions(vp1.period, 0);
-    } else if (key == 's') {
+      break;
+    case 's':
       cap1.capacitance = changeOptions(cap1.capacitance, 1);
-    } else if (key == 'x') {
+      break;
+    case 'x':
       cap1.capacitance = changeOptions(cap1.capacitance, 0);
-    } else if (key == 'd') {
+      break;
+    case 'd':
       cap1.resistance = changeOptions(cap1.resistance, 1);
-    } else if (key == 'c') {
+      break;
+    case 'c':
       cap1.resistance = changeOptions(cap1.resistance, 0);
-    } else if (key == '1') {
+      break;
+    case '1':
       flag_wave = 1;
-    } else if (key == '2') {
+      break;
+    case '2':
       flag_wave = 2;
+      break;
     }
     if (flag_wave == 1) {
       printw("Input signal\n");
