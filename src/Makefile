@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -Wall -Werror -Wextra
-LDFLAGS= 
+LDFLAGS=
 SOURCES= waprint.c cli_sim_rc.c simfiles.c items.c
 OBJECTS= $(SOURCES:.c=.o)
 EXECUTABLE= cli_rc_sim
@@ -11,7 +11,7 @@ objects:
 	$(CC) $(CFLAGS) -c $(SOURCES) $(OBGECTS)
 
 cli_rc_sim: objects
-	$(CC) $(LDLAGS) cli_sim_rc.o simfiles.o items.o waprint.o -lncurses -o cli_rc_sim
+	$(CC) $(LDLAGS) cli_sim_rc.o simfiles.o items.o waprint.o -lncurses -lm -o cli_rc_sim
 
 clean:
 	rm -f *.o
