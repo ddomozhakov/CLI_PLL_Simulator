@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS= -Wall -Werror -Wextra
-LDFLAGS=
+LDFLAGS= 
 SOURCES=wave_demo.cpp waprint.cpp
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=m.out
@@ -8,7 +8,7 @@ EXECUTABLE=m.out
 all: cli_rc_sim
 
 main: $(OBJECTS)
-	$(CC) $(OBJECTS) -o m.out
+	$(CC) $(OBJECTS) -o  m.out
 
 waprint.o: waprint.cpp
 	$(CC) $(CFLAGS) -c waprint.cpp -o waprint.o
@@ -35,11 +35,11 @@ cli_sim_rc.o: cli_sim_rc.cpp
 	$(CC) $(CFLAGS) -c cli_sim_rc.cpp -o cli_sim_rc.o
 
 cli_rc_sim: clean cli_sim_rc.o simfiles.o items.o waprint.o
-	$(CC) $(LDLAGS) -lncurses cli_sim_rc.o simfiles.o items.o waprint.o -o cli_rc_sim
+	$(CC) $(LDLAGS) cli_sim_rc.o simfiles.o items.o waprint.o -lncurses -o cli_rc_sim
 
 clean:
 	rm -f *.o
-	rm -f test_items test_files m.out cli_rc_sim
+	rm -f  test_items  test_files  m.out  cli_rc_sim
 	rm -f sim_1 sim_2
 
 rebuild:
