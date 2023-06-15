@@ -2,8 +2,7 @@
 #define H_WAPRINT
 
 #include "simfiles.h"
-#include <cmath>
-#include <iostream>
+#include <math.h>
 #include <ncurses.h>
 
 void waveformPrint(struct buffer_wave *fi, int x_n, int y_n, int y_range);

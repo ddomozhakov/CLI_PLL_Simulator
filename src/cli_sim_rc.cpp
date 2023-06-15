@@ -49,9 +49,9 @@ int main() {
         writeBufferToFile(file_sim_2, integr, buffer_len);
         file_shift = 0;
       } else {
-        vp1.setV(buffer, global_time, time_step, file_shift);
+        vpulse_setV(vp1, buffer, global_time, time_step, file_shift);
         cap1.input_voltage = buffer[file_shift].y;
-        cap1.setV(integr, global_time, time_step, file_shift);
+        cap_setV(cap1, integr, global_time, time_step, file_shift);
         file_shift++;
       }
       global_time = global_time + time_step;

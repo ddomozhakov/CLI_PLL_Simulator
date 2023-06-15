@@ -1,8 +1,6 @@
 #ifndef H_SIMFILES
 #define H_SIMFILES
 
-#include <iostream>
-#include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
