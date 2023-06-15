@@ -1,6 +1,7 @@
 #include "items.h"
 
-void vpulse_setV(vpulse *vp, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift) {
+void vpulseSetV(vpulse *vp, struct buffer_wave *buffer, double global_time,
+                 double time_step, int wave_shift) {
   if ((vp->state == 1) && (vp->local_time > vp->period / 2)) {
     vp->state = 0;
     vp->local_time = 0;
@@ -13,8 +14,10 @@ void vpulse_setV(vpulse *vp, struct buffer_wave *buffer, double global_time, dou
   vp->local_time = vp->local_time + time_step;
 }
 
-void cap_setV(cap *c, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift) {
-  double res_current = ((c->input_voltage - c->current_voltage) / c->resistance);
+void capSetV(cap *c, struct buffer_wave *buffer, double global_time,
+              double time_step, int wave_shift) {
+  double res_current =
+      ((c->input_voltage - c->current_voltage) / c->resistance);
   c->charge = c->charge + (res_current / time_step);
   c->current_voltage = c->charge / c->capacitance;
 
@@ -23,7 +26,7 @@ void cap_setV(cap *c, struct buffer_wave *buffer, double global_time, double tim
   c->local_time = c->local_time + time_step;
 }
 
-void cap_init(cap *c){
+void capInit(cap *c) {
   c->local_time = 0;
   c->current_voltage = 0;
   c->input_voltage = 0;
@@ -32,7 +35,7 @@ void cap_init(cap *c){
   c->charge = 0;
 }
 
-void vpulse_init(vpulse *vp){
+void vpulseInit(vpulse *vp) {
   vp->local_time = 0;
   vp->state = 1;
   vp->v_hi = 1;

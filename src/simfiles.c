@@ -1,6 +1,7 @@
 #include "simfiles.h"
 
-void readBufferFromFile(char *file_dest, struct buffer_wave *buffer, int read_file_shift, int n_lens) {
+void readBufferFromFile(char *file_dest, struct buffer_wave *buffer,
+                        int read_file_shift, int n_lens) {
   FILE *file_pointer;
   file_pointer = fopen(file_dest, "r");
   char *ptr;
@@ -16,7 +17,8 @@ void readBufferFromFile(char *file_dest, struct buffer_wave *buffer, int read_fi
   fclose(file_pointer);
 }
 
-void writeBufferToFile(char *file_dest, struct buffer_wave *buffer, int n_lens) {
+void writeBufferToFile(char *file_dest, struct buffer_wave *buffer,
+                       int n_lens) {
   FILE *file_pointer;
   file_pointer = fopen(file_dest, "a");
   for (int i = 0; i < n_lens; i++) {

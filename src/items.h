@@ -20,9 +20,11 @@ typedef struct cap {
   double charge;
 } cap;
 
-void vpulse_setV(vpulse *vp, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
-void cap_setV(cap *c, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
-void cap_init(cap *c);
-void vpulse_init(vpulse *vp);
+void vpulseSetV(vpulse *vp, struct buffer_wave *buffer, double global_time,
+                 double time_step, int wave_shift);
+void capSetV(cap *c, struct buffer_wave *buffer, double global_time,
+              double time_step, int wave_shift);
+void capInit(cap *c);
+void vpulseInit(vpulse *vp);
 
-#endif  //ITEMS
+#endif  // ITEMS

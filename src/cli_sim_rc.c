@@ -1,29 +1,15 @@
-#include <ncurses.h>
-#include "simfiles.h"
-#include "waprint.h"
-#include "items.h"
-
-double changeOptions(double val, int dir);
+#include "cli_sim_rc.h"
 
 int main() {
-  int buffer_len = 250, y_n = 40, y_range = 1, read_file_shift = 0;
-  struct buffer_wave buffer[buffer_len];
-  struct buffer_wave integr[buffer_len];
-  char file_sim_1[] = "sim_1";
-  char file_sim_2[] = "sim_2";
-  int file_shift = 0;
-  double time_step = 0.5;
-  double global_time;
-  int flag_wave = 0;
-  double simulation_time = 256;
-  int counter = 0;
-
-  struct vpulse vp1;
-  struct cap cap1;
-  vpulse_init(&vp1);
-  cap_init(&cap1);
-
-  char key = 'm';
+  int buffer_len = 250, y_n = 40, y_range = 1, read_file_shift = 0,
+      file_shift = 0, flag_wave = 0, counter = 0;
+  buffer_wave buffer[buffer_len], integr[buffer_len];
+  vpulse vp1;
+  cap cap1;
+  char file_sim_1[] = "sim_1", file_sim_2[] = "sim_2", key = 'm';
+  double time_step = 0.5, global_time = 0, simulation_time = 256;
+  vpulseInit(&vp1);
+  capInit(&cap1);
   initscr();
   while (key != 'q') {
     key = getch();
@@ -51,9 +37,9 @@ int main() {
         writeBufferToFile(file_sim_2, integr, buffer_len);
         file_shift = 0;
       } else {
-        vpulse_setV(&vp1, buffer, global_time, time_step, file_shift);
+        vpulseSetV(&vp1, buffer, global_time, time_step, file_shift);
         cap1.input_voltage = buffer[file_shift].y;
-        cap_setV(&cap1, integr, global_time, time_step, file_shift);
+        capSetV(&cap1, integr, global_time, time_step, file_shift);
         file_shift++;
       }
       global_time = global_time + time_step;
@@ -64,39 +50,15 @@ int main() {
       integr[i].y = (integr[i].y + 0.1) * 1.5;
       buffer[i].y = (buffer[i].y + 0.1) * 1.5;
     }
-    switch (key) {
-    case 'a':
-      vp1.period = changeOptions(vp1.period, 1);
-      break;
-    case 'z':
-      vp1.period = changeOptions(vp1.period, 0);
-      break;
-    case 's':
-      cap1.capacitance = changeOptions(cap1.capacitance, 1);
-      break;
-    case 'x':
-      cap1.capacitance = changeOptions(cap1.capacitance, 0);
-      break;
-    case 'd':
-      cap1.resistance = changeOptions(cap1.resistance, 1);
-      break;
-    case 'c':
-      cap1.resistance = changeOptions(cap1.resistance, 0);
-      break;
-    case '1':
-      flag_wave = 1;
-      break;
-    case '2':
-      flag_wave = 2;
-      break;
-    }
+    switchOptions(key, &cap1, &vp1, &flag_wave);
     if (flag_wave == 1) {
       printw("Input signal\n");
       waveformPrint(buffer, buffer_len, y_n, y_range);
     } else if (flag_wave == 2) {
       printw("Output signal");
-      printw("Perind = %.2lf, Capacitance = %.2lf, Resistance = %.2lf\n", vp1.period, cap1.capacitance, cap1.resistance);
-      waveformPrint(integr, buffer_len, y_n, y_range+0.1);
+      printw("Perind = %.2lf, Capacitance = %.2lf, Resistance = %.2lf\n",
+             vp1.period, cap1.capacitance, cap1.resistance);
+      waveformPrint(integr, buffer_len, y_n, y_range + 0.1);
     }
     refresh();
   }
@@ -117,3 +79,31 @@ double changeOptions(double val, int dir) {
   return val;
 }
 
+void switchOptions(char key, cap *cap, vpulse *vp, int *flag) {
+  switch (key) {
+    case 'a':
+      vp->period = changeOptions(vp->period, 1);
+      break;
+    case 'z':
+      vp->period = changeOptions(vp->period, 0);
+      break;
+    case 's':
+      cap->capacitance = changeOptions(cap->capacitance, 1);
+      break;
+    case 'x':
+      cap->capacitance = changeOptions(cap->capacitance, 0);
+      break;
+    case 'd':
+      cap->resistance = changeOptions(cap->resistance, 1);
+      break;
+    case 'c':
+      cap->resistance = changeOptions(cap->resistance, 0);
+      break;
+    case '1':
+      *flag = 1;
+      break;
+    case '2':
+      *flag = 2;
+      break;
+  }
+}
