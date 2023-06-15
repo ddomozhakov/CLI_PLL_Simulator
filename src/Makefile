@@ -1,7 +1,7 @@
-CC=g++
+CC=gcc
 CFLAGS= -Wall -Werror -Wextra
 LDFLAGS= 
-SOURCES= waprint.cpp cli_sim_rc.cpp simfiles.cpp items.cpp
+SOURCES= waprint.c cli_sim_rc.c simfiles.c items.c
 OBJECTS= $(SOURCES:.c=.o)
 EXECUTABLE= cli_rc_sim
 

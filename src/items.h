@@ -3,24 +3,26 @@
 
 #include "simfiles.h"
 
-void vpulse_setV(struct vpulse  &vp, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
-void cap_setV(struct cap &c, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
+typedef struct vpulse {
+  double local_time;
+  int state;
+  double v_hi;
+  double v_low;
+  double period;
+} vpulse;
 
-struct vpulse {
-  double local_time = 0;
-  int state = 1;
-  double v_hi = 1;
-  double v_low = 0;
-  double period = 50;
-};
+typedef struct cap {
+  double local_time;
+  double current_voltage;
+  double input_voltage;
+  double resistance;
+  double capacitance;
+  double charge;
+} cap;
 
-struct cap {
-  double local_time = 0;
-  double current_voltage = 0;
-  double input_voltage = 0;
-  double resistance = 5;
-  double capacitance = 5;
-  double charge = 0;
-};
+void vpulse_setV(vpulse *vp, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
+void cap_setV(cap *c, struct buffer_wave *buffer, double global_time, double time_step, int wave_shift);
+void cap_init(cap *c);
+void vpulse_init(vpulse *vp);
 
 #endif  //ITEMS

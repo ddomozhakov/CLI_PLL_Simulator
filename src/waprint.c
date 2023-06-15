@@ -45,7 +45,7 @@ void screenPrint(int **screen, int y_n, int x_n) {
 }
 
 void fieldSet(struct buffer_wave *fi, int x_n, int x_range, int y_n, int y_range) {
-  double x_step = double(x_range) / double(x_n);
+  double x_step = x_range / x_n;
   for (int i = 0; i < x_n; i++) {
     fi[i].x = x_step * i;
     fi[i].y = sin(pow(fi[i].x, 1.25)) * 0.5 * (y_n / y_range) + y_n / 2;
