@@ -30,4 +30,4 @@ Changing the RC circuit capacitance: s/x.
 Change of resistance of RC-chain: d/c.
 Exit the program - q. 
 
-If the graphs display mush and chaos, stretch the terminal to the full screen and/or zoom in on the terminal symbols.
+If the charts display mush and chaos, maximize the terminal to full screen and/or zoom in on the terminal symbols.
