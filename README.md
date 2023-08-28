@@ -1,33 +1,33 @@
-Цель проекта состоит в закреплении базовых знаний программирования на языке Си. 
-Суть проекта заключена в моделировании интегрирующей RC-цепи.  
-Интегрирующая RC-цепь сглаживает резкие перепады напряжения. 
-Схема RC-цепи представлена на рисунке.
+The aim of the project is to consolidate basic knowledge of C programming. 
+The essence of the project lies in the simulation of an integrating RC-circuit.  
+The integrating RC-circuit smoothes sharp voltage drops. 
+The schematic of the RC-circuit is shown in the figure.
 
 ![image](misc/images/Readme_1.jpg)
 
-Выходное напряжение $V _ { out }$ зависит от времени $t$ по закону:
+The output voltage $V _ { out }$ depends on time $t$ according to the law:
 
 $$
 V _ { out } (t) = V _ { 0 } * \( 1 - \exp^\frac { - t } { RC })
 $$
 
-Программа пошагово производит симуляцию приращений заряда на конденсаторе за условный период времени.
-Результат симуляции записывается в файлы. При выводе на экран данные читаются из файлов. 
-График выводится в терминале (псевдографика). 
+The program step by step simulates the increments of charge on the capacitor for a conditional period of time.
+The result of the simulation is written to files. When displaying on the screen, the data are read from the files. 
+The graph is displayed in the terminal (pseudo-graphics).
 
-Сборка программы и запуск: 
-Тестировал на Mac OS Big Sur, Ubuntu 23. 
-Для запуска следует перейти в src, ввести команду make. Для компиляции требуется GCC.
-Исполняемый файл доступен в папке src. 
-Для удаления временных файлов ввести команду make clean. 
+Build the program and run it: 
+Tested on Mac OS Big Sur, Ubuntu 23. 
+To run, go to src, enter make command. GCC is required for compilation.
+The executable is available in the src folder. 
+To remove temporary files, enter the make clean command.
 
-Работа программы:
-Программа работает в интерактивном режиме. 
-Нажание управляющих кнопок клавиатуры меняет параметры симуляции.
-Переключение между графиками входного и выходного сигналов: 1/2.
-Изменение периода входного сигнала - a/z.
-Изменение емкости RC-цепи: s/x.
-Изменение сопротивления RC-цепи: d/c.
-Выход из программы - q. 
+Program operation:
+The program works in interactive mode. 
+Pressing the keyboard control buttons changes the simulation parameters.
+Switching between input and output signal graphs: 1/2.
+Changing the period of the input signal - a/z.
+Changing the RC circuit capacitance: s/x.
+Change of resistance of RC-chain: d/c.
+Exit the program - q. 
 
-Если графики выводят кашу и хаос, растяните терминал на весь экран и/или увеличьте масштаб отображения символов терминала.
+If the graphs display mush and chaos, stretch the terminal to the full screen and/or zoom in on the terminal symbols.
