@@ -1,7 +1,7 @@
 #include "items.h"
 
 void vpulseSetV(vpulse *vp, struct buffer_wave *buffer, double global_time,
-                 double time_step, int wave_shift) {
+                double time_step, int wave_shift) {
   if ((vp->state == 1) && (vp->local_time > vp->period / 2)) {
     vp->state = 0;
     vp->local_time = 0;
@@ -15,7 +15,7 @@ void vpulseSetV(vpulse *vp, struct buffer_wave *buffer, double global_time,
 }
 
 void capSetV(cap *c, struct buffer_wave *buffer, double global_time,
-              double time_step, int wave_shift) {
+             double time_step, int wave_shift) {
   double res_current =
       ((c->input_voltage - c->current_voltage) / c->resistance);
   c->charge = c->charge + (res_current / time_step);

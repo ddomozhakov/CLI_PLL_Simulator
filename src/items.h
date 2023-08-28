@@ -21,9 +21,9 @@ typedef struct cap {
 } cap;
 
 void vpulseSetV(vpulse *vp, struct buffer_wave *buffer, double global_time,
-                 double time_step, int wave_shift);
+                double time_step, int wave_shift);
 void capSetV(cap *c, struct buffer_wave *buffer, double global_time,
-              double time_step, int wave_shift);
+             double time_step, int wave_shift);
 void capInit(cap *c);
 void vpulseInit(vpulse *vp);
 
